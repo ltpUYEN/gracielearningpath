@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Comparison</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        body {
+            margin: 0; /* Remove default body margin */
+            min-height: 100vh; /* Ensure body takes at least full viewport height */
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center child horizontally */
+            align-items: center; /* Center child vertically */
+            background-color: #e0e0e0; /* Optional: background for contrast */
+            font-family: sans-serif;
+            padding: 10px; /* Add some padding around the main container */
+            box-sizing: border-box; /* Include padding in height calculation */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+
+        <h1>Improvements of my reports</h1>
+
+        <div class="video-comparison-container">
+
+            <div class="video-wrapper">
+                <h3>Previous version</h3>
+                <video id="video1" controls>
+                    <source src="./images/oldport.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="video-wrapper">
+                <h3>New version</h3>
+                <video id="video1" controls>
+                    <source src="./images/newport.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+        </div> </div> <script src="script.js"></script>
+</body>
+</html>

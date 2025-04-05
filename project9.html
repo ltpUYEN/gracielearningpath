@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>NETFLIX Project</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Allow normal scrolling for this content page */
+        body {
+            overflow: auto !important; /* Override overflow:hidden from main.css */
+        }
+
+        /* Wrapper to push content below fixed nav */
+        .content-wrapper {
+            /* Adjust top padding based on actual nav height from main.css */
+            padding-top: 5em;
+            padding-bottom: 3em; /* Space above footer */
+        }
+
+        /* Styling for the main article content */
+        .netflix-article {
+            background-color: #fff;
+            padding: 2em 1.5em; /* Padding */
+            /* Match max-width from jobMarket.html */
+            max-width: 1100px;
+            margin: 2em auto;   /* Centering and vertical space */
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Banner image container styling */
+        .netflix-article .banner-image {
+            width: 100%;
+            overflow: hidden; /* Keep overflow hidden for border-radius */
+            margin-bottom: 2em;
+            border-radius: 10px; /* Round corners for banner */
+        }
+
+        .netflix-article .banner-image img {
+            width: 100%;
+            height: auto; /* Allow image height to be determined by aspect ratio */
+            display: block; /* Remove extra space below image */
+        }
+
+        .netflix-article h2 {
+            font-size: 2em;
+            color: #333;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        .netflix-article p,
+        .netflix-article ul,
+        .netflix-article li {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1em;
+        }
+
+        .netflix-article ul {
+            list-style: disc;
+            margin-left: 2em; /* Indent list */
+            color: inherit;
+        }
+
+         .netflix-article li {
+             margin-bottom: 0.5em; /* Spacing for list items */
+         }
+
+        .netflix-article strong {
+            color: #333; /* Make strong text darker */
+        }
+        
+        /* Style for the added Tableau link paragraph */
+        .netflix-article .tableau-link {
+            text-align: center; /* Center the link */
+            margin-top: 1.5em; /* Add some space above it */
+        }
+         /* Style for the link itself */
+        .netflix-article .tableau-link a {
+            /* You can adjust link color if needed, otherwise it uses default link styles */
+             /* color: #007bff; */ 
+             text-decoration: none; /* Remove underline if desired */
+        }
+         .netflix-article .tableau-link a:hover {
+             text-decoration: underline; /* Add underline on hover */
+         }
+         /* Strong tag within the link will inherit boldness */
+
+
+        /* Ensure footer displays correctly on scrollable page */
+         #contact.footer {
+            position: relative; /* Override fixed if needed */
+            min-height: auto; /* Override min-height if not needed */
+            scroll-snap-align: none; /* Disable scroll snap */
+            margin-top: 3em; /* Add some space before footer */
+         }
+
+    </style>
+</head>
+
+<body class="is-preload">
+
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-wrapper">
+
+        <article class="netflix-article">
+
+            <div class="banner-image">
+                <img src="images/netflix.png" alt="NETFLIX Project Visual">
+            </div>
+
+            <h2>NETFLIX Project Analysis</h2>
+
+            <p>
+                This project involves an in-depth analysis of the Netflix dataset, exploring trends in content production, genre popularity, and rating distributions across different countries and years.
+            </p>
+
+            <p>
+                <strong>Data Source & Tech Stack:</strong><br>
+                Kaggle: Netflix Movies and TV Shows dataset.<br>
+                Tableau: Used for data cleaning, analysis, and creating the visualizations.
+            </p>
+
+            <p>
+                <strong>Key Findings & Insights:</strong>
+            </p>
+            <ul>
+                <li>The Netflix library analyzed consists significantly more of movies (~70%) than TV shows (~30%).</li>
+                <li>Content availability is heavily concentrated in certain countries, particularly the United States.</li>
+                <li>There was a marked increase in the number of titles added annually in the late 2010s (peaking around 2018-2020).</li>
+                <li>Popular genres include combinations involving Dramas, International Movies, Comedies, and Documentaries.</li>
+            </ul>
+            <p>
+                <strong>Project Disclaimer:</strong>
+            </p>
+            <p>
+                This dashboard was created as a study project using a Netflix dataset from Kaggle, primarily for the purpose of learning Tableau.
+            </p>
+
+            <p class="tableau-link">
+                <a href="https://public.tableau.com/app/profile/uyen.le6817/viz/Netflixdashboard_16906241425510/Dashboard1" target="_blank" rel="noopener noreferrer">
+                    <strong>Gracie Uyen Le Tableau</strong>
+                </a>
+            </p>
+            </article>
+
+    </div> <footer id="contact" class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="contact-method">
+                    <span class="icon solid alt fa-envelope"><h3>Email</h3></span>
+                    <a href="mailto:ltpuyen225@gmail.com">ltpuyen225@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <div class="contact-method">
+                    <span class="icon solid alt fa-phone"><h3>Phone</h3></span>
+                    <a href="tel:+84766767150">+84 766 767 150</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Find me on ...</h3>
+                <ul class="social">
+                    <li><a href="https://ltpuyen.github.io/miniPort/" class="icon brands fa-dribbble" target="_blank" rel="noopener noreferrer"><span class="label">Dribbble</span></a></li>
+                    <li><a href="https://www.linkedin.com/in/uyen-le-2424b2206/" class="icon brands fa-linkedin-in" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://github.com/ltpUYEN" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">Github</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

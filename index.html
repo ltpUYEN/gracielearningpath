@@ -1,0 +1,350 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Miniport by Uyen</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	
+		<link rel="stylesheet" href="assets/css/main.css" />
+	
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+		
+		<script src="https://cdn.tailwindcss.com"></script> 
+		<link rel="stylesheet" href="assets/css/main.css" /> 
+	
+		</head>
+	
+			<style>
+				/* Added rule for pink background */
+				body {
+					background-color: rgba(250, 236, 236, 0.999); /* You can change 'pink' to a specific hex code like #FFC0CB */
+				}
+	
+				#intro {
+					position: relative;
+					width: 100%;
+					padding-bottom: 20px;
+				}
+	
+				#intro img {
+					display: block;
+					width: 100%;
+					height: auto;
+					max-width: 100%;
+					margin-top: 10px;
+					position: relative;
+					z-index: 1;
+				}
+	
+				#intro svg.curved-title-svg {
+					position: absolute;
+					top: 30px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 90%;
+					max-width: 600px;
+					height: 120px;
+					z-index: 10;
+					pointer-events: none;
+					overflow: visible;
+				}
+	
+				.pixel-title-text {
+					font-family: 'Pixelify Sans', sans-serif;
+					font-size: 28px;
+					font-weight: 500;
+					fill: #FFFFFF;
+					text-anchor: middle;
+				}
+	
+				#confetti-canvas {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					z-index: 5;
+					pointer-events: none;
+					display: block;
+					margin-top: 0;
+				}
+			</style>
+	
+	</head>
+
+	<body class="no-scrollbar">
+        <div id="intro">
+            <svg class="curved-title-svg" viewBox="0 0 500 120">
+                <defs>
+                    <path id="curvePath" d="M 10 80 Q 250 40 490 80" fill="none"/>
+                </defs>
+                <text class="pixel-title-text">
+                    <textPath href="#curvePath" startOffset="50%">
+                        Welcome to Gracie's learning path
+                    </textPath>
+                </text>
+            </svg>
+            <img src="./images/moomin.gif" alt="Welcome Image">
+
+            <canvas id="confetti-canvas"></canvas>
+        </div>
+		<!-- Nav -->
+		<nav id="nav">
+			<ul>
+				<li><a href="#home">About me</a></li>
+				<li><a href="#projects">Projects</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+
+		<div id="portfolio-content" class="hidden bigContainer" >
+			<!-- Home  -->
+			<section id="home">
+				<div class="container">
+					<div class="image-container">
+						<img src="./images/ava.jpg" alt="Profile Image">
+					</div>
+			
+					<div class="right-column">
+						<div class="text-content">
+							<h1>Welcome to my learning path</h1>
+							<p>Hei! I'm Gracie, a recent graduate fascinated by the language hidden within data, driven by curiosity to uncover its meaning. <br>I'm looking for a Trainee role where I can build bridges between raw data and business insights. </p>
+							<p>Journey through my projects below to explore my work. </p>
+						</div>
+			
+						<div class="tech-stack-container">
+							<h3>My Tech Stack</h3>
+							<div class="tech-icons-grid" id="tech-icons-grid-js"> 
+								<img src="images/mysql.svg" alt="MySQL Logo" title="MySQL" class="tech-icon">
+								<img src="images/mssql.svg" alt="MS SQL Server Logo" title="MS SQL Server" class="tech-icon">
+								<img src="images/mysql_workbench.svg" alt="MySQL Workbench Logo" title="MySQL Workbench" class="tech-icon">
+								<img src="images/git.svg" alt="Git Logo" title="Git" class="tech-icon">
+								<img src="images/docker.svg" alt="Docker Logo" title="Docker" class="tech-icon">
+								<img src="images/powerbi.svg" alt="Power BI Logo" title="Power BI" class="tech-icon">
+								<img src="images/tableau.svg" alt="Tableau Logo" title="Tableau" class="tech-icon">
+								<img src="images/sap.svg" alt="SAP Logo" title="SAP" class="tech-icon">
+								<img src="images/excel.png" alt="Excel Logo" title="Microsoft Excel" class="tech-icon">
+								<img src="images/python.svg" alt="Python Logo" title="Python" class="tech-icon">
+								<img src="images/Pandas.svg" alt="Pandas Logo" title="Pandas" class="tech-icon">
+								<img src="images/numpy.svg" alt="NumPy Logo" title="NumPy" class="tech-icon">
+								<img src="images/api.svg" alt="APIs Icon" title="APIs" class="tech-icon">
+								<img src="images/vscode.svg" alt="VS Code Logo" title="Visual Studio Code" class="tech-icon">
+								</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+			<!-- Projects -->
+			<section id="projects">
+				<div class="projects-container">
+					<button class="carousel-arrow prev">❮</button>
+					<button class="carousel-arrow next">❯</button>
+					
+					<div class="projects-carousel">
+						<!-- Slide 1 -->
+						<div class="projects-slide">
+							<div class="projects-grid">
+								
+								<!-- Project Card 1 -->
+								<a href="https://github.com/ltpUYEN/UnemploymentFi" class="project-card" target="_blank" rel="noopener noreferrer">
+									<div class="project-image">
+										<img src="images/avaFistats.png" alt="Unemployment in Finland">	
+									</div>
+									<div class="project-info">
+										<h3>Unemployment in Finland</h3>
+										<p>This project analyzes monthly labor market data for 3 cities: Helsinki, Espoo, and Vantaa (2015-2024)</p>
+									</div>
+								</a>
+
+								<!-- Project Card 2 -->
+								<a href="https://github.com/ltpUYEN/helmet" class="project-card" target="_blank" rel="noopener noreferrer">
+									<div class="project-image">
+										<img src="images/avaHelmet.png" alt="Helmet library">	
+									</div>
+									<div class="project-info">
+										<h3>Libraries Dataset and Analysis</h3>
+										<p>Driven by a personal interest in exploring local libraries, particularly while living in Helsinki, this project undertakes the collection, cleaning, and analysis of data from Helmet libraries.</p>
+									</div>
+								</a>
+								
+
+								<!-- Project Card 3 -->
+								<a href="https://github.com/ltpUYEN/Nobel_prize" class="project-card" target="_blank" rel="noopener noreferrer">
+									<div class="project-image">
+										<img src="images/avaNobel.jpg" alt="Nobel Prize">	
+									</div>
+									<div class="project-info">
+										<h3>Nobel Prize (1901 - 2024)</h3>
+										<p>Inspired by Nobel winner Han Kang, this project explores Nobel Prize data (1901-2024) to uncover trends among laureates. </p>
+									</div>
+								</a>
+
+								<!-- Project Card 4 -->
+								<a href="https://github.com/ltpUYEN/UEFA_championship" class="project-card" target="_blank" rel="noopener noreferrer">
+									<div class="project-image">
+										<img src="images/avaUEFA.jpg" alt="Helmet library">	
+									</div>
+									<div class="project-info">
+										<h3>UEFA Euro Cup Historical Analysiss</h3>
+										<p>This project explores the history of the UEFA European Championship (Euro Cup) winners. </p>
+									</div>
+								</a>
+
+
+								
+								<!-- Project Card 5 -->
+								<a href="https://github.com/ltpUYEN/HR-Analysis" class="project-card" target="_blank" rel="noopener noreferrer">
+									<div class="project-image">
+										<img src="images/avaHR.jpg" alt="Scraping and Visualizing website data">
+									</div>
+									<div class="project-info">
+										<h3>HR Attrition Analysis Power BI Dashboard</h3>
+										<p>This project analyzes employee data to understand key HR metrics, focusing on employee attrition.</p>
+									</div>
+								</a>
+								
+								<!-- Project Card 6 -->
+								<a href="project6.html" class="project-card" target="_blank" rel="noopener noreferrer">
+									<div class="project-image">
+										<img src="images/avaReporting.png" alt="Improvements Report">
+									</div>
+									<div class="project-info">
+										<h3>Reporting improvements</h3>
+										<p>Two videos of my previous and new reports, showing the improvements on the new ones.</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="projects-slide">
+							<div class="projects-grid">
+								
+								
+								<!-- Project Card 7 -->
+								<a href="https://github.com/ltpUYEN/E-commerce-Pet-Supply" class="project-card" target="_blank" rel="noopener noreferrer">
+									<div class="project-image">
+										<img src="images/avaPet.png" alt="E-commerce Pet Supply Analysis">
+									</div>
+									<div class="project-info">
+										<h3>E-commerce Pet Supply Analysis</h3>
+										<p>This Tableau study-project involved creating an executive dashboard to analyze e-commerce data.</p>
+									</div>
+								</a>
+								
+								<!-- Project Card 8 -->
+								<a href="https://github.com/ltpUYEN/Supply-Chain-Cost-Analysis" class="project-card" target="_blank" rel="noopener noreferrer">
+									<div class="project-image">
+										<img src="images/avaSupply.png" alt="NETFLIX project">
+									</div>
+									<div class="project-info">
+										<h3>Supply Chain Cost Analysis</h3>
+										<p>A study-project using Power BI to perform Exploratory Data Analysis (EDA) on the Data Analyst job market. </p>
+									</div>
+								</a>
+								
+								<!-- Project Card 9 -->
+								<a href="NETFLIX.html" class="project-card" target="_blank" rel="noopener noreferrer">
+									<div class="project-image">
+										<img src="images/avanetflix.jpg" alt="NETFLIX project">
+									</div>
+									<div class="project-info">
+										<h3>NETFLIX project</h3>
+										<p>This study project involved creating a Tableau dashboard to explore and visualize the Netflix dataset.</p>
+									</div>
+								</a>
+
+								<!-- Project Card 10 -->
+								<a href="https://github.com/ltpUYEN/Job-Market-EDA" class="project-card" target="_blank" rel="noopener noreferrer">
+									<div class="project-image">
+										<img src="images/avaEDA.png" alt="">
+									</div>
+									<div class="project-info">
+										<h3>Data Analyst Job Market EDA</h3>
+										<p>This study-project applies Exploratory Data Analysis (EDA) to the Data Analyst job market using Power BI.</p>
+									</div>
+								</a>
+
+								<!-- Project Card 11 -->
+								<a href="https://github.com/ltpUYEN/Waste-and-Recycling" class="project-card" target="_blank" rel="noopener noreferrer">
+									<div class="project-image">
+										<img src="images/avaHsy.png" alt="HSY Waste Category Scraper">
+									</div>
+									<div class="project-info">
+										<h3>HSY Waste Category Scraper</h3>
+										<p>This dataset was compiled to link HSY waste categories with external data on waste management in the Helsinki region (for a future project).</p>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="carousel-nav">
+						<div class="carousel-dot active"></div>
+						<div class="carousel-dot"></div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Contact -->
+			<footer id="contact" class="footer">				
+				<img src="./images/moominbye.gif" alt="moomin bye~">
+
+				<div class="footer-container">
+					<div class="footer-column">
+						<div class="contact-method">
+							<div class="contact-details">
+								<img src="images/iconemail.png" alt="Email Icon" class="footer-icon">
+								<a href="mailto:ltpuyen225@gmail.com">ltpuyen225@gmail.com</a>
+							</div>
+						</div>
+					</div>
+					<div class="footer-column">
+						<div class="contact-method">
+							<div class="contact-details">
+								<img src="images/iconphone.png" alt="Phone Icon" class="footer-icon">
+								<span style="color: pink">+84 766 767 150</span>
+							</div>
+						</div>
+					</div>
+					<div class="footer-column">
+						<h3>Find me on ...</h3>
+						<ul class="social">
+							<li>
+								<a href="https://ltpuyen.github.io/miniPort/" class="social-link" title="Dribbble Profile">
+									<img src="images/dribbble.png" alt="" class="footer-icon">
+									<span class="label">Dribbble</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.linkedin.com/gracie-uyenle" class="social-link" title="LinkedIn Profile">
+									<img src="images/iconlinkedin.png" alt="" class="footer-icon">
+									<span class="label">LinkedIn</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://github.com/ltpUYEN" class="social-link" title="GitHub Profile">
+									<img src="images/github.png" alt="" class="footer-icon">
+									<span class="label">Github</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</footer>
+		</div>
+	
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="./assets/vendor/canvas-confetti/dist/confetti.browser.js"></script>
+		<script src="confetti.js"></script>
+
+	</body>
+</html>

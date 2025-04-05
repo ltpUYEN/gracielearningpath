@@ -1,0 +1,1026 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,600,600italic,700");
+@import url("fontawesome-all.min.css");
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	box-sizing: border-box;
+	font-family: inherit;
+	scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+html {
+	margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x:hidden;
+	overflow:hidden;
+	margin: 0;
+    padding: 0;
+}
+
+/* ---------------------- NEW ----------------------------------- */
+
+/* ------------------------ SECTION ---------------------------------------- */
+section {
+    height: calc(100vh - 6.5em); /* Account for nav bar height + margin */
+    margin: 10px 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.page-container {
+    width: 100vw;
+    height: 85vh; 
+    max-height: 900px;
+
+    background-color: white;
+    border-radius: 25px;
+    padding: 30px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Style the main heading */
+h1 {
+    text-align: center;
+    margin-top: 0; /* Remove default top margin */
+    margin-bottom: 20px; /* Space below heading */
+    flex-shrink: 0; /* Prevent heading from shrinking if content is tall */
+    color: #333;
+}
+
+/* Adjust the video comparison container to fill the page-container */
+.video-comparison-container {
+    display: flex;
+    gap: 20px; /* Slightly increase gap between videos */
+    flex-wrap: wrap; /* Allow wrapping on smaller heights/widths */
+    justify-content: center;
+    align-items: stretch; /* Make wrappers stretch vertically IF needed */
+
+    width: 100%; /* Fill the width of page-container */
+    flex-grow: 1; /* Allow this container to take available vertical space */
+    min-height: 0; /* Important for flex-grow in some browsers */
+    overflow-y: auto; /* Add scroll if content overflows vertically */
+    padding: 15px; /* Small padding for scrollbar spacing */
+}
+
+/* Adjust the individual video wrappers */
+.video-wrapper {
+    flex: 1 1 45%; /* Allow growing, shrinking, base width ~45% */
+    min-width: 300px; /* Adjust minimum width */
+
+    background-color: #f4f4f4; /* Slightly different background */
+    padding: 5px; /* Adjust padding */
+    border: 1px solid #ccc;
+    border-radius: 15px; /* Nicely rounded corners */
+
+    display: flex; /* Use flexbox to arrange heading and video */
+    flex-direction: column; /* Stack heading and video */
+}
+
+/* Adjust video wrapper heading */
+.video-wrapper h3 {
+    margin-top: 0;
+    text-align: center;
+    flex-shrink: 0; /* Prevent shrinking */
+    color: #555;
+}
+
+/* Style the video element itself */
+.video-wrapper video {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    /* Let height be determined by width to maintain aspect ratio */
+    /* height: auto; is the default and works well here */
+    flex-grow: 1; /* Allow video to take up space in the wrapper */
+    min-height: 0; /* Fix potential flex grow issues */
+    border-radius: 8px; /* Slightly rounded corners for the video player */
+    object-fit: cover; /* Ensure video fits within bounds without distortion */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    section {
+        height: calc(100vh - 5.5em);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+    
+    .project-card {
+        height: 360px;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        height: calc(100vh - 4.5em);
+        padding: 1.5rem;
+    }
+    .container {
+        flex-direction: column;
+    }
+    .image-container {
+        min-height: 300px;
+    }
+    .text-content {
+        padding: 1.5rem;
+    }
+    .project-detail-image {
+        max-height: 50vh; /* TRY CHANGING THIS for mobile: e.g., 45vh, 55vh */
+    }
+    .portfolio-image-container img {
+        border-radius: 15px;
+    }
+    #projects .projects-container {
+        padding: 15px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .project-card {
+        height: 280px;
+    }
+    
+    .carousel-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        height: calc(100vh - 4em);
+        padding: 1rem;
+    }
+
+    #home .image-container {
+        width: 85%;
+        max-height: 30vh;
+    }
+
+    #home .text-content h1 {
+        font-size: 1.6rem;
+    }
+     #home .text-content p {
+        font-size: 0.9rem;
+    }
+
+    #home .tech-icons-grid {
+        gap: 8px;
+        grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+        max-height: 90px; /* Adjust max height */
+    }
+    #home .tech-icon {
+        width: 35px;
+        height: 35px;
+    }
+    .portfolio-image-container img {
+        border-radius: 10px;
+    }
+
+    #projects .projects-container {
+        padding: 10px;
+    }
+    
+    .project-card {
+        height: 250px;
+    }
+}
+
+/* ------------------------ SECTION ---------------------------------------- */
+#portfolio-content {
+    /* scroll-snap-type: y mandatory; */
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.image-container {
+    flex: 1;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15px;
+}
+
+.text-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.text-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+.bigContainer {
+	scroll-snap-type: y mandatory;
+	overflow-y: scroll;
+	height: 100vh;
+	width: 100vw;
+}
+
+.aboutMe {
+	background-color: rgb(136, 189, 232);
+}
+
+.portfolio {
+	background-color: rgb(252, 155, 248);
+}
+
+.projects {
+	background-color: rgb(171, 37, 37);
+}
+
+#intro {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-in-out;
+}
+
+#intro.active ~ #nav {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+}
+
+/* Show nav when intro is not active */
+#intro:not(.active) ~ #nav {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease 0.5s;
+}
+
+/* Make sure nav stays hidden initially */
+
+/* Hide portfolio content initially */
+.hidden {
+    display: none;
+}
+
+.confetti-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+}
+
+/* Individual confetti pieces */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+/* Basic */
+
+/* Nav */
+
+#nav {
+    position: fixed;
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    background-color: #282828;
+    height: 3.5em;
+    line-height: 3.5em;
+    border-radius: 15px;
+    min-width: 300px;
+    max-width: 90%;
+    padding: 0.5rem 1rem;
+    opacity: 0.85;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+#nav.scrolled {
+    opacity: 0.1;
+}
+
+#nav:hover {
+    opacity: 1 !important;
+    background-color: #383838;
+}
+
+#nav ul {
+    margin: 5px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap; /* Prevent items from wrapping */
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+#nav li {
+    display: inline-block;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+#nav a {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 10px;
+    height: 2.5em;
+    padding: 0 1em; /* Reduced padding for smaller screens */
+    font-size: clamp(0.8rem, 1.5vw, 1rem); /* Responsive font size */
+}
+
+#nav a:hover {
+    color: pink !important;
+    background: #383838;
+}
+
+#nav a.active {
+    background: #484848;
+}
+
+#nav a.active:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -0.6em;
+    left: 50%;
+    margin-left: -0.75em;
+    border-left: solid 0.75em transparent;
+    border-right: solid 0.75em transparent;
+    border-top: solid 0.6em #282828;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #nav {
+        min-width: 250px;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+
+    #nav ul {
+        gap: 0.5rem;
+    }
+    
+    #nav a {
+        padding: 0 0.8em;
+    }
+}
+	
+	.horizontal-menu li {
+		text-align: center;
+		padding: 1px;
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	  }
+	  
+	  .horizontal-menu p {
+		text-decoration: none;
+		color: #2ecc71; /* Text color */
+		transition: color 0.3s;
+		padding: 1px 30px; /* Adjust padding for text spacing */
+		border: 1.2px solid #2ecc71; /* Green border around each item */
+		border-radius: 7px; /* Smooth curved corners */
+		margin: 2pt; /* Add space between borders */
+	  }
+	
+	.horizontal-menu p:hover {
+	color: #2ecc71; /* Green color on hover */
+	}
+
+/* ------------------------------- Home ------------------------------ */
+#home {
+    display: flex; /* Ensure section itself is flex for alignment */
+    align-items: center; /* Vertically center the container */
+    justify-content: center; /* Horizontally center the container */
+}
+
+#home .container {
+    display: flex;
+    height: 80%;
+    margin: 0;
+    max-width: 75%;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: white;
+    overflow: hidden;
+    padding: 10px;
+    /* Ensure flex items can stretch vertically if needed */
+    align-items: stretch;
+}
+
+/* Left Side: Image */
+#home .image-container {
+    flex: 0 0 45%; /* Image takes 45% of the width */
+    height: 100%;
+    /* Adjust padding if needed, ensure vertical centering */
+    display: flex;
+    max-width: 80%;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden; /* Ensure image respects border radius */
+}
+
+#home .image-container img {
+    width: 100%;
+    height: 100%; /* Make image fill the container height */
+    object-fit: cover; /* Cover the area, may crop */
+    /* Or use object-fit: contain; if you want to see the whole image */
+    border-radius: 20px; /* Rounded corners for the image */
+}
+
+/* Right Side: Text + Tech Stack */
+#home .right-column {
+    flex: 1; /* Takes the remaining space (55%) */
+    display: flex;
+    flex-direction: column; /* Stack text and tech stack vertically */
+    padding: 1.5rem; /* Adjust padding */
+    box-sizing: border-box;
+    overflow: hidden; /* Hide overflow from children */
+}
+
+/* Top Right: Introduction Text */
+#home .text-content {
+    flex-grow: 1; /* Allows text area to grow */
+    flex-shrink: 1; /* Allows text area to shrink if space is limited */
+    overflow-y: auto; /* Add scrollbar if text is too long */
+     /* Keep existing h1, p styles */
+}
+
+#home .text-content h1 {
+    font-size: 2.2rem; /* Adjust as needed */
+    color: #333;
+}
+
+#home .text-content p {
+    font-size: 1rem; /* Adjust as needed */
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    color: #666;
+}
+
+/* Bottom Right: Tech Stack Container */
+#home .tech-stack-container {
+    flex-shrink: 0;
+    background-color: rgba(250, 236, 236, 0.999);
+    border: 1px solid #000000;
+    border-radius: 15px;
+    padding: 1rem;
+    margin-top: 1rem;
+    /* overflow: hidden; */ /* Optional: Consider if needed based on layout */
+    position: relative; /* Establishes positioning context */
+}
+
+#home .tech-stack-container h3 {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #484848;
+}
+
+/* --- Style the GRID container using its ID --- */
+/* Ensure this rule defines the complete grid layout */
+#home #tech-icons-grid-js { 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+    gap: 25px; /* Adjust gap as needed */
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Padding inside the grid */
+    cursor: pointer; 
+    min-height: 100px; /* Prevent collapsing */
+    position: relative; /* Crucial for offset calculations of children */
+}
+
+/* --- Style the ICONS (NO CSS ANIMATION HERE) --- */
+#home .tech-icon {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    /* Optional: transition for hover effect only */
+    transition: transform 0.2s ease-in-out; 
+    margin: auto; 
+    /* Crucial for JS transform to work relative to grid spot */
+    position: relative; 
+    backface-visibility: hidden;
+}
+
+/* --- Icon Hover Effect (NO animation pause) --- */
+#home .tech-icon:hover {
+    transform: scale(1.15); 
+}
+
+@media (max-width: 980px) { /* Tablet and below */
+     #home .container {
+        flex-direction: column; /* Stack image and right column vertically */
+        height: auto; /* Allow container height to adjust */
+        max-height: calc(100vh - 7em); /* Limit height and allow scroll */
+        overflow-y: auto; /* Enable scroll on the container */
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+    #home .image-container {
+        flex: 0 0 auto; /* Reset flex basis */
+        width: 70%; /* Adjust width */
+        max-height: 35vh; /* Limit image height */
+        margin: 1rem auto; /* Center image block */
+        padding: 1rem;
+        order: 1; /* Keep image on top */
+    }
+
+     #home .image-container img {
+        object-fit: contain; /* Better fit for variable height */
+    }
+
+    #home .right-column {
+        width: 100%; /* Take full width */
+        padding: 1rem;
+        order: 2; /* Place below image */
+    }
+
+    #home .text-content {
+         overflow-y: visible; /* Disable scroll here, container handles it */
+         padding-bottom: 1rem;
+    }
+
+     #home .text-content h1 {
+        font-size: 1.8rem;
+    }
+
+     #home .text-content p {
+        font-size: 0.95rem;
+    }
+
+    #home .tech-stack-container {
+        padding-top: 0.5rem;
+    }
+
+     #home .tech-stack-container h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+     }
+
+     #home .tech-icons-grid {
+        /* Adjust columns for smaller screens */
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        gap: 10px;
+        max-height: 100px; /* Adjust max height */
+     }
+
+     #home .tech-icon {
+         width: 40px;
+         height: 40px;
+     }
+}
+
+.project-detail-image {
+    width: 100%;
+    height: auto;          /* Maintain aspect ratio */
+    max-height: 65vh;      /* TRY CHANGING THIS: e.g., 60vh, 70vh, etc. */
+    object-fit: contain;   /* Scale down to fit within bounds */
+    border-radius: 10px;
+    display: block;
+    opacity: 0;
+    animation: slideFadeInUp 0.8s 0.2s ease-out forwards;
+}
+
+
+/* Ensure the animation definition is still present */
+@keyframes slideFadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Portfolio section  */
+
+.portfolio-section {
+    position: relative;
+    height: calc(100vh - 3.5em); /* Account for nav height */
+    margin-top: 3em;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-out;
+}
+
+.portfolio-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.portfolio-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: translateY(100vh); /* Start off-screen */
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.portfolio-section.active .portfolio-image-container img {
+    transform: translateY(0); /* Slide into view */
+}
+
+/* --------------------------------- Projects ------------------------------ */
+#projects {
+    /* Keep existing styles like min-height, display, etc. */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box; /* Ensure box-sizing */
+    padding-left: 5rem;   /* Match #home */
+    padding-right: 5rem;  /* Match #home */
+    /* Keep or adjust top/bottom padding as needed */
+    padding-top: 3em;     /* Example: Add consistent top/bottom space */
+    padding-bottom: 3em;  /* Example: Add consistent top/bottom space */
+    /* ---------------------- */
+
+    height: auto; /* Ensure height isn't fixed if content varies */
+}
+
+
+/* Modify the .projects-container inside #projects */
+#projects .projects-container {
+    position: relative; /* Keep relative positioning */
+    height: 80%;
+    max-width: 80%; /* Ensure it takes full width of padded section */
+    background: #fff; /* Keep background */
+    border-radius: 25px; /* Keep rounded corners */
+    overflow: hidden; /* Keep overflow hidden for carousel */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Keep shadow */
+    padding: 20px; /* Keep internal padding for content */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.projects-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+
+.projects-carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    padding: 10px 0; /* Add some vertical padding */
+}
+
+.projects-slide {
+    min-width: 100%;
+    padding: 0 10px; /* Adjust horizontal padding */
+    box-sizing: border-box;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 15px;
+    padding: 10px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 20px; /* Slightly smaller radius than container */
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 400px; /* Slightly reduced height */ /* <<< CURRENT HEIGHT */
+    display: flex;
+    flex-direction: column;
+    text-decoration: none !important;
+    border: 1px solid #f0f0f0; /* Light border for definition */
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+	text-decoration: none !important;
+
+}
+
+.project-image {
+    height: 70%;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 15px;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.project-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: #282828;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 0;                  /* Align to the top of the container */
+    height: 100%;            /* Make the button span the full container height */
+    width: 3.5%;             /* Width of the clickable hover area */
+    background: rgba(0, 0, 0, 0.05); /* Very subtle dark background initially */
+    border: none;            /* Remove default border */
+    border-radius: 0;        /* Ensure it's rectangular, not rounded */
+    display: flex;
+    justify-content: center; /* Center the arrow icon horizontally */
+    align-items: center;     /* Center the arrow icon vertically */
+    cursor: pointer;
+    z-index: 10;             /* Keep it above other content */
+    font-size: 1.8rem;       /* Initial size of the arrow icon */
+    color: rgba(0, 0, 0, 0.2); /* Very subtle icon color initially */
+    /* Remove the previous shadow */
+    /* Add transitions for smooth hover effects */
+    transition: background-color 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+    /* Prevent accidental text selection on click/drag */
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.carousel-arrow.prev { left: 0;}
+
+.carousel-arrow.next { right: 0;}
+
+.carousel-arrow:hover {
+    background: rgba(148, 145, 145, 0.4); /* Darker, more noticeable background */
+    color: rgba(0, 0, 0, 0.9); /* Much more visible icon color */
+    font-size: 2.5rem;       /* Make the arrow icon larger */
+}
+
+/* --------------------------- FOOTER ----------------------------- */
+/* Styles for the main footer container and image (Keep as is or adjust as needed) */
+.footer {
+    background-color: #282828;
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;
+}
+
+footer.footer > img[alt="moomin bye~"] {
+    display: block;
+    width: 50%; /* Or desired width */
+    height: auto;
+    margin: 1.5rem auto;
+    max-width: 90%;
+    border-radius: 15px;
+}
+
+/* Grid layout for the columns */
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem; /* Adjust spacing between columns */
+    max-width: 800px; /* Or your preferred max width */
+    margin: 2rem auto 0; /* Margin above container, centered horizontally */
+    width: 90%; /* Prevent it stretching full width on very wide screens */
+}
+
+/* Styling for each column */
+.footer-column {
+    display: flex; /* Use flex to help center content */
+    flex-direction: column;
+    align-items: center; /* Center content horizontally within the column */
+    justify-content: flex-start; /* Align content to the top of the column */
+}
+
+/* Styling for the block containing icon+details */
+.contact-method {
+    /* No display: flex here needed anymore */
+    margin-bottom: 1rem; /* Space below each contact block */
+    width: 100%; /* Allow centering within the column */
+    text-align: center; /* Ensures text itself is centered if it wraps */
+}
+
+/* NEW/MODIFIED: Style the container for icon and text */
+.contact-details {
+    display: flex; /* Use flexbox here */
+    flex-direction: column; /* Stack icon and text vertically */
+    align-items: center; /* Center the items horizontally */
+}
+
+/* Styling specifically for icons within email/phone details */
+.contact-details .footer-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5rem; /* Add space BELOW the icon */
+}
+
+/* Styling for email link and phone text */
+.contact-details a,
+.contact-details span {
+    font-size: 1em;
+    color: pink; /* Your desired color */
+    text-decoration: none;
+    font-weight: bold;
+    word-break: break-all; /* Helps prevent overflow on mobile */
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+
+/* Styling for "Find me on..." heading */
+.footer-column h3 {
+    margin-bottom: 1rem; /* Space below the heading */
+    font-size: 1.2rem; /* Adjust size as needed */
+    color: white;
+}
+
+/* Styling for Social Icons section (Keep or adjust as needed) */
+.social {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the icons horizontally */
+    gap: 1.5rem; /* Space between icons */
+}
+
+.social li {
+    line-height: 0; /* Prevent extra space if using inline-block */
+}
+
+.social .social-link {
+    display: inline-block;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.social .social-link:hover {
+    color: pink; /* Or adjust hover effect */
+     /* You might target the icon directly too: */
+     /* .social .social-link:hover .footer-icon { fill: pink; } */
+}
+
+/* General Footer Icon Styling (can be overridden) */
+.footer-icon {
+    width: 50px; /* Default/Social icon size */
+    height: 50px;
+    vertical-align: middle; /* Useful baseline */
+    display: block; /* Ensures consistent layout within links/containers */
+}
+
+/* Specific size for email/phone icons (overrides the default above) */
+.contact-details .footer-icon {
+    width: 50px; /* Back to 50px for these specific icons */
+    height: 50px;
+    margin-bottom: 0.5rem; /* Ensure space is still applied */
+}
+
+
+/* Accessibility for Social Labels */
+.social .social-link .label {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
